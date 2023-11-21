@@ -1,0 +1,6 @@
+#Gradient6 {
+background: #C28340;
+background: -webkit-linear-gradient(to top, #C28340 0%, #854F2B 50%, #61371F 50%, #8FCA5C 50%, #70B237 50%, #477A1E 100%);
+background: -moz-linear-gradient(to top, #C28340 0%, #854F2B 50%, #61371F 50%, #8FCA5C 50%, #70B237 50%, #477A1E 100%);
+background: linear-gradient(to top, #C28340 0%, #854F2B 50%, #61371F 50%, #8FCA5C 50%, #70B237 50%, #477A1E 100%);
+}
