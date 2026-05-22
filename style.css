@@ -1,0 +1,126 @@
+#back-video{
+    position: absolute;
+    right:0;
+    bottom:0;
+    z-index:-1;
+    filter: brightness(60%)
+    
+    
+}
+
+@media (min-aspect-ratio:16/9){
+    #back-video{
+        width: 100%;
+        height:auto;
+    }
+}
+
+@media (max-aspect-ratio:16/9){
+    #back-video{
+        width: auto;
+        height:100%;
+    }
+}
+
+#position {
+    position:left;
+    bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0%;
+    
+
+  }
+#Fixed {
+    position: absolute;
+left: 0;
+    width: auto;
+    height: 100px;
+    
+} 
+.gradient1 {
+    background: linear-gradient(to bottom, #AE00CE 0%, #002C66 50%, #000000 100%);
+}
+
+.gradient2 {
+    background: linear-gradient(to bottom, #04FF00 0%, #000000 60%, #000000 100%);
+}
+
+.gradient3 {
+    background: linear-gradient(to bottom, #027300 0%, #000000 75%, #000000 100%);
+}
+
+.gradient4 {
+    background: linear-gradient(to right, #6E0075 0%, #026E00 50%, #003094 100%);
+}
+
+.gradient5 {
+    background: linear-gradient(to bottom, #0200D6 0%, #000000 50%, #00184A 100%);
+}
+
+.gradient6 {
+    background: linear-gradient(to top, #C28340 0%, #854F2B 50%, #61371F 50%, #8FCA5C 50%, #70B237 50%, #477A1E 100%);
+}
+
+:root {
+    --table-bg: rgba(255,255,255,0.7);
+    --table-text: black;
+}
+
+.dark {
+    --table-bg: rgba(0,0,0,0.7);
+    --table-text: white;
+}
+table {
+    background: var(--table-bg) !important;
+    color: var(--table-text);
+    border-collapse: separate;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+}
+
+td {
+    background: transparent !important;
+    color: inherit;
+}
+table * {
+    background: transparent;
+}
+
+.banner {
+  border-radius:16px;
+}
+#themeToggle {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+
+    width: 50px;
+    height: 50px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+
+    backdrop-filter: blur(10px);
+
+    color: rgb(255, 210, 87);
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+    background: rgba(21, 177, 0, 0.35);
+}
+.dark #logo {
+    filter: invert(1);
+}
+
+
