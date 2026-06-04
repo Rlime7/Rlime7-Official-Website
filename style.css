@@ -149,8 +149,6 @@ table * {
 }
 
 #themeToggle .theme-icon {
-  display: inline-block;
-  transform: rotate(-45deg);
   text-shadow:
     -1px -1px 0 rgb(255, 210, 87),
     1px -1px 0 rgb(255, 210, 87),
@@ -663,7 +661,7 @@ nav {
     width: 95% !important;
     margin: 0 auto;
     border-collapse: separate;
-    border-spacing: 0 20px; /* 👈 aici recuperezi “spațiul” */
+    border-spacing: 0 20px;
   }
 
   .release-table tr,
@@ -673,7 +671,7 @@ nav {
   }
 
   .release-table td {
-    padding: 10px 0; /* 👈 spațiu real între elemente */
+    padding: 10px 0; 
   }
 
   .release-table iframe {
@@ -733,7 +731,7 @@ iframe {
     font-size: clamp(36px, 12vw, 52px) !important;
   }
 
-  table:has(.bandcampWrapper) {
+  table {
     display: block;
     width: 100% !important;
     max-width: 430px;
@@ -743,15 +741,15 @@ iframe {
     
   }
 
-  table:has(.bandcampWrapper) > tbody,
-  table:has(.bandcampWrapper) > tbody > tr,
-  table:has(.bandcampWrapper) > tbody > tr > td {
+  table > tbody,
+  table > tbody > tr,
+  table > tbody > tr > td {
     display: block;
     width: 100% !important;
     
   }
 
-  table:has(.bandcampWrapper) > tbody > tr > td {
+  table > tbody > tr > td {
     padding: 8px 0 !important;
   }
 
@@ -768,9 +766,9 @@ iframe {
     max-width: 350px;
   }
 
-  table:has(.bandcampWrapper) p,
-  table:has(.bandcampWrapper) font[size="4"] {
-    font-size: 24px !important;
+  table p,
+  table font[size="4"] {
+    font-size: 16px !important; /*FOCKING DIMENSIUNEA TEXTULUI*/
     line-height: 1.6;
   }
 
@@ -781,5 +779,6 @@ iframe {
     height: 42px;
     font-size: 19px;
   }
+
 }
 

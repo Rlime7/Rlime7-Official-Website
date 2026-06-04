@@ -8,25 +8,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!button) return;
 
+    // Detect if the character renders properly
     function supportsChar(char) {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
 
-        ctx.font = "24px Arial, sans-serif";
-        const fallbackWidth = ctx.measureText("\uFFFD").width;
+        ctx.font = "16px Arial";
+        ctx.fillText(char, 0, 16);
 
-        return Math.abs(ctx.measureText(char).width - fallbackWidth) > 1;
+        const data = ctx.getImageData(0, 0, 20, 20).data;
+        return data.some(v => v !== 0);
     }
 
-    const DESKTOP_MOON = "\u23FE";
-    const SAFE_MOON = "\u263E";
-    const SUN_ICON = "\u2600";
+    const DESKTOP_MOON = "⏾";
+    const SAFE_MOON = "☾";
+
+    // If ⏾ doesn't render, fallback automatically
     const MOON_ICON = supportsChar(DESKTOP_MOON) ? DESKTOP_MOON : SAFE_MOON;
 
     function updateIcon() {
         const isDark = document.body.classList.contains("dark");
-        const icon = isDark ? SUN_ICON : MOON_ICON;
-        button.innerHTML = `<span class="theme-icon">${icon}</span>`;
+        button.textContent = isDark ? "☀︎" : MOON_ICON;
     }
 
     updateIcon();
