@@ -1,3 +1,14 @@
+html, body {
+ width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+
+/* =========================
+   BACKGROUND VIDEO
+========================= */
+
 .back-video {
   position: fixed;
   top: 0;
@@ -6,7 +17,7 @@
   height: 100%;
   overflow: hidden;
   z-index: -1;
-  filter:blur(10px);
+  filter: blur(10px);
   transform: scale(1.1);
 }
 
@@ -15,299 +26,240 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
   min-width: 100%;
   min-height: 100%;
-
   object-fit: cover;
-  
 }
 
-
-@media (min-aspect-ratio:16/9){
-    #back-video{
-        width: 100%;
-        height:auto;
-    }
+/* FIX aspect ratio (corectat selectorul) */
+@media (min-aspect-ratio: 16/9) {
+  .back-video video {
+    width: 100%;
+    height: auto;
+  }
 }
 
-@media (max-aspect-ratio:16/9){
-    #back-video{
-        width: auto;
-        height:100%;
-    }
+@media (max-aspect-ratio: 16/9) {
+  .back-video video {
+    width: auto;
+    height: 100%;
+  }
 }
+
+/* =========================
+   FIX POSITION BUG
+========================= */
 
 #position {
-    position:left;
-    bottom: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 0%;
-    
+  position: relative;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  }
+/* =========================
+   FIXED ELEMENT
+========================= */
+
 #Fixed {
-    position: absolute;
-left: 0;
-    width: auto;
-    height: 100px;
-    
-} 
+  position: absolute;
+  left: 0;
+  width: auto;
+  height: 100px;
+}
 
+/* =========================
+   GRADIENTS
+========================= */
 
 .gradient2 {
-    background: linear-gradient(to bottom, #04FF00 0%, #000000 60%, #000000 100%);
+  background: linear-gradient(to bottom, #04FF00 0%, #000000 60%, #000000 100%);
 }
 
 .gradient3 {
-    background: linear-gradient(to bottom, #027300 0%, #000000 75%, #000000 100%);
+  background: linear-gradient(to bottom, #027300 0%, #000000 75%, #000000 100%);
 }
 
+/* =========================
+   THEME VARIABLES
+========================= */
 
 :root {
-    --table-bg: rgba(255,255,255,0.7);
-    --table-text: black;
-    --loader-bg: rgb(40, 54, 31);
-    --loader-text: black;
-    --loader-accent: #2ebd35;
+  --table-bg: rgba(255,255,255,0.7);
+  --table-text: black;
+  --loader-bg: rgb(40, 54, 31);
+  --loader-text: black;
+  --loader-accent: #2ebd35;
 }
 
 .dark {
-    --table-bg: rgba(0,0,0,0.7);
-    --table-text: white;
-    
-    --loader-bg: rgba(0,0,0,1);
-    --loader-text: white;
-    --loader-accent: #2ebd35;
+  --table-bg: rgba(0,0,0,0.7);
+  --table-text: white;
+  --loader-bg: rgba(0,0,0,1);
+  --loader-text: white;
+  --loader-accent: #2ebd35;
 }
+
+/* =========================
+   TABLE
+========================= */
+
 table {
-    background: var(--table-bg) !important;
-    color: var(--table-text);
-    border-collapse: separate;
-    border-spacing: 16px;
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
+  background: var(--table-bg) !important;
+  color: var(--table-text);
+  border-collapse: separate;
+  border-spacing: 16px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
 }
 
 td {
-    background: transparent !important;
-    color: inherit;
+  background: transparent !important;
+  color: inherit;
 }
+
 table * {
-    background: transparent;
+  background: transparent;
 }
 
-
+/* =========================
+   THEME TOGGLE
+========================= */
 
 #themeToggle {
-    position: fixed;
-    top: 15px;
-    right: 15px;
+  position: fixed;
+  top: 22px;
+  right: 22px;
 
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 
-    border: none;
-    border-radius: 50%;
+  border: none;
+  border-radius: 50%;
 
-    background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
 
-    backdrop-filter: blur(10px);
+  color: rgb(255, 210, 87);
+  font-size: 22px;
 
-    color: rgb(255, 210, 87);
-    font-size: 22px;
+  cursor: pointer;
 
-    cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
 
-    transition:
-        transform 0.2s ease,
-        background 0.3s ease;
+#themeToggle .theme-icon {
+  display: inline-block;
+  transform: rotate(-45deg);
+  text-shadow:
+    -1px -1px 0 rgb(255, 210, 87),
+    1px -1px 0 rgb(255, 210, 87),
+    -1px 1px 0 rgb(255, 210, 87),
+    1px 1px 0 rgb(255, 210, 87);
+}
+
+.dark #themeToggle .theme-icon {
+  transform: none;
+  text-shadow:
+    -1px -1px 0 rgba(255, 210, 87,0),
+    1px -1px 0 rgba(255, 210, 87,0),
+    -1px 1px 0 rgba(255, 210, 87,0),
+    1px 1px 0 rgba(255, 210, 87,0);
+  
 }
 
 #themeToggle:hover {
-    transform: scale(1.1);
-    background: rgba(21, 177, 0, 0.35);
+  transform: scale(1.1);
+  background: rgba(21, 177, 0, 0.35);
 }
+
+nav {
+  line-height: 0;
+}
+
+#logo {
+  display: block;
+}
+
+/* =========================
+   LOGO DARK MODE
+========================= */
+
 .dark #logo {
-    filter: invert(1);
+  filter: invert(1);
 }
+
+/* =========================
+   FONTS
+========================= */
+
 @font-face {
-    font-family: "Glacial Indifference";
-    src: url("fonts/GlacialIndifference-Regular.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Glacial Indifference";
+  src: url("fonts/GlacialIndifference-Regular.otf") format("opentype");
 }
 
+@font-face {
+  font-family: "Playlist Script";
+  src: url("fonts/Playlist-Script.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("fonts/Minecraft.ttf") format("opentype");
+}
+
+/* =========================
+   TYPOGRAPHY CLASSES
+========================= */
+
+.font-face h1,
 .font-face {
-    font-family: "Glacial Indifference", sans-serif;
-}
-.font-face h1{
-    font-family: "Glacial Indifference", sans-serif;
-    font-weight: 400;
-    letter-spacing: 3px;
-    color: white;
-    text-align: center;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-}
-.font h1{
-     letter-spacing: 8px;
-    text-transform: uppercase;
-}
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 2.5s ease forwards;
-    animation-delay: 2s;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 0.9;
-        transform: translateY(0);
-    }
+  font-family: "Glacial Indifference", sans-serif;
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .light {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   color: white;
-    text-align: center;
-    letter-spacing: 6px;
-    text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 6px;
+  text-transform: uppercase;
 }
-.orbitron-light {
-    font-family: "Orbitron", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    text-align: center;
-    letter-spacing: 6px;
-}
+
+.orbitron-light,
 .audiowide {
-    font-family: "Audiowide", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    text-align: center;
-    letter-spacing: 6px;
+  font-family: "Orbitron", "Audiowide", sans-serif;
+  font-weight: 400;
+  color: white;
+  text-align: center;
+  letter-spacing: 6px;
 }
+
 .league-gothic {
-    font-family: "League Gothic", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-     color: white;
-    text-align: center;
-    letter-spacing: 20px;
-     text-transform: uppercase;
+  font-family: "League Gothic", sans-serif;
+  color: white;
+  text-align: center;
+  letter-spacing: 20px;
+  text-transform: uppercase;
 }
 
 .antonio {
-    font-family: "Antonio", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    color: white;
-    text-align: center;
-    letter-spacing: 10px;
-     text-transform: uppercase;
-}
-
-@font-face {
-    font-family: "Playlist Script";
-    src: url("fonts/Playlist-Script.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Antonio", sans-serif;
+  color: white;
+  text-align: center;
+  letter-spacing: 10px;
+  text-transform: uppercase;
 }
 
 .playlist-script {
-    font-family: "Playlist Script", sans-serif;
-    color: white;
-    text-align: center;
-    letter-spacing: 6px;
-}
-
-.album-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-    gap: 25px;
-    width: 85%;
-    margin: auto;
-    max-width: 1700px;
-    background: var(--table-bg) !important;
-    padding: 20px;
-    border-radius: 16px;
-}
-.album {
-    text-align: center;
-    padding: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-     border-radius: 16px;
-}
-
-.album img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.album:hover {
-    transform: scale(1.03);
-    border-radius: 16px;
-    overflow: hidden;
-}
-.album:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-}
-
-.dark .album:hover {
-    box-shadow: 0 0 15px rgb(94, 255, 0);
-}
-
-.album p {
-    font-family: verdana;
-    font-size: 20px;
-    margin-top: 6px;
-}
-.album-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    width: 60%;
-    max-width: 400px;
-    margin: auto;
-    background: var(--table-bg) !important;
-    color: var(--table-text);
-    padding: 15px;
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-
-
-.banner {
-  border-radius:16px;
-    max-width: 100%;
-    height: auto;
-     object-fit: cover;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-@media (max-width: 768px) {
-    .album-grid {
-        grid-template-columns: 1fr !important;
-        width: 95% !important;
-        padding: 10px !important;
-    }
-
-    .album p {
-        font-size: 13px;
-    }
+  font-family: "Playlist Script", sans-serif;
+  color: white;
+  text-align: center;
 }
 @font-face {
     font-family: "Minecraft";
@@ -323,70 +275,511 @@ table * {
      text-transform: uppercase;
    
 }
-#bandcampDark {
+
+/* =========================
+   ANIMATION
+========================= */
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    pointer-events: none;
-    position: absolute;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  }
 }
 
-.dark #bandcampLight {
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
+/* =========================
+   ALBUM GRID
+========================= */
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 25px;
+  width: 85%;
+  margin: auto;
+  max-width: 1700px;
+  background: var(--table-bg) !important;
+  padding: 20px;
+  border-radius: 16px;
 }
 
-.dark #bandcampDark {
-    opacity: 1;
-    pointer-events: auto;
-    position: static;
-}
-#loadingScreen {
-    position: fixed;
-    inset: 0;
-
-    background: var(--loader-bg);
-    color: var(--loader-text);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    z-index: 9999;
-    transition: opacity 0.4s ease;
-}
-.loaderBar {
-    width: 120px;
-    height: 2px;
-    margin-top: 12px;
-
-    background: rgba(128,128,128,0.2);
-    overflow: hidden;
-    position: relative;
+.album {
+  text-align: center;
+  padding: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 16px;
 }
 
-.loaderBar::after {
-    content: "";
-    position: absolute;
-    left: -40%;
-    width: 40%;
-    height: 100%;
-    background: var(--loader-accent);
-    animation: slide 1s infinite;
+.album img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-@keyframes slide {
-    to { left: 100%; }
+.album:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(0,0,0,0.25);
 }
-.bandcampWrapper {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    border-radius: 0 0 16px 16px;
-    overflow: hidden;
-    display: inline-block;
-    
+
+.dark .album:hover {
+  box-shadow: 0 0 15px rgb(94, 255, 0);
 }
+
+.album p {
+  font-family: verdana;
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+/* =========================
+   ALBUM LIST
+========================= */
+
+.album-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 85%;
+  max-width: 400px;
+  margin: auto;
+  background: var(--table-bg) !important;
+  color: var(--table-text);
+  padding: 15px;
+  border-radius: 16px;
+}
+
+/* =========================
+   WEEKLY FRIDAY TRACK
+========================= */
+
+.weekly-table {
+  width: 80%;
+  margin: 0 auto;
+  border-spacing: 16px;
+}
+
+.weekly-table > tbody > tr:nth-child(2) {
+  display: grid;
+  grid-template-columns: minmax(360px, 480px) minmax(360px, 1fr);
+  gap: 34px;
+  align-items: start;
+  padding: 6px;
+}
+
+.weekly-table > tbody > tr:nth-child(2) > td {
+  display: block;
+  width: 100%;
+}
+
+.weekly-tracklist {
+  width: 100%;
+  border-spacing: 0 10px;
+}
+
+.weekly-tracklist img {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 14px;
+  display: block;
+  border-radius: 10px;
+}
+
+.weekly-tracklist tr:not(:first-child) {
+  display: grid;
+  grid-template-columns: minmax(260px, 300px) minmax(150px, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.weekly-tracklist audio {
+  width: 100%;
+  display: block;
+}
+
+.weekly-tracklist font {
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.weekly-table > tbody > tr:nth-child(2) > td:last-child p {
+  max-width: 620px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* =========================
+   MEDIA / IMAGES
+========================= */
+
+.banner {
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin: auto;
+}
+
 .images {
-  border-radius:16px;
+  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   filter: brightness(1.5);
 }
+
+/* =========================
+   BANDCAMP SWITCH
+========================= */
+
+#bandcampDark {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.dark #bandcampLight {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.dark #bandcampDark {
+  opacity: 1;
+  pointer-events: auto;
+  position: static;
+}
+
+.bandcampWrapper {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+  display: inline-block;
+}
+.bandcampWrapper iframe {
+  width: 100%;
+  max-width: 350px;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+  background: var(--loader-bg);
+  color: var(--loader-text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  z-index: 9999;
+  transition: opacity 0.4s ease;
+}
+
+.loaderBar {
+  width: 120px;
+  height: 2px;
+  margin-top: 12px;
+  background: rgba(128,128,128,0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+.loaderBar::after {
+  content: "";
+  position: absolute;
+  left: -40%;
+  width: 40%;
+  height: 100%;
+  background: var(--loader-accent);
+  animation: slide 1s infinite;
+}
+
+@keyframes slide {
+  to { left: 100%; }
+}
+
+/* =========================
+   MOBILE FIX (IMPORTANT)
+========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .album-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    max-width: 430px;
+    padding: 10px !important;
+  }
+
+  .album-list {
+    width: 100% !important;
+    max-width: 430px;
+  }
+
+  .home-table {
+    display: block;
+    width: 100% !important;
+    max-width: 430px;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    border-spacing: 0 !important;
+  }
+
+  .home-table > tbody,
+  .home-table > tbody > tr,
+  .home-table > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .weekly-table {
+    display: block;
+    width: 100% !important;
+    max-width: 430px;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    border-spacing: 0 !important;
+  }
+
+  .weekly-table > tbody,
+  .weekly-table > tbody > tr,
+  .weekly-table > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .weekly-table > tbody > tr:nth-child(2) {
+    display: block;
+    grid-template-columns: none;
+  }
+
+  .weekly-table > tbody > tr > td {
+    padding: 8px 0 !important;
+    
+  }
+
+  .weekly-tracklist {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto !important;
+    border-spacing: 0 !important;
+    
+  }
+
+  .weekly-tracklist > tbody,
+  .weekly-tracklist > tbody > tr,
+  .weekly-tracklist tr:not(:first-child),
+  .weekly-tracklist > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .weekly-tracklist > tbody > tr {
+    margin-bottom: 14px;
+  }
+
+  .weekly-tracklist audio {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .weekly-tracklist font {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  .weekly-table > tbody > tr:nth-child(2) > td:last-child p {
+    max-width: none;
+    margin-top: 10px;
+  }
+
+  .album p {
+    font-size: 14px;
+  }
+
+  h1, h2, p {
+    letter-spacing: normal !important;
+  }
+
+  .league-gothic,
+  .antonio,
+  .minecraft {
+    letter-spacing: 6px !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+/* =========================
+   RELEASE PAGE FIX (IMPORTANT)
+========================= */
+
+.release-table {
+  width: 80%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.release-table td {
+  vertical-align: top;
+}
+
+.release-content {
+  font-family: Verdana;
+  font-size: 16px;
+  color: grey;
+  text-align: left;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+
+  .release-table {
+    width: 95% !important;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0 20px; /* 👈 aici recuperezi “spațiul” */
+  }
+
+  .release-table tr,
+  .release-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .release-table td {
+    padding: 10px 0; /* 👈 spațiu real între elemente */
+  }
+
+  .release-table iframe {
+    width: 100% !important;
+  }
+
+  .release-content {
+    font-size: 14px !important;
+    line-height: 1.6;
+  }
+}
+
+iframe {
+  max-width: 100%;
+}
+
+/* =========================
+   MOBILE RELEASE PAGES
+========================= */
+
+@media (max-width: 768px) {
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0 12px;
+    
+  }
+
+  .fade-in h1 {
+    margin: 0;
+    padding: 46px 0 18px;
+    line-height: 1.1;
+  }
+
+  .fade-in h1 br {
+    display: none;
+  }
+
+  h1 font[size="7"] {
+    font-size: clamp(30px, 9vw, 44px) !important;
+  }
+
+  .font-face,
+  .light,
+  .orbitron-light,
+  .audiowide,
+  .league-gothic,
+  .antonio {
+    letter-spacing: 3px !important;
+  }
+
+  .playlist-script h1 font[size="7"] {
+    font-size: clamp(36px, 12vw, 52px) !important;
+  }
+
+  table:has(.bandcampWrapper) {
+    display: block;
+    width: 100% !important;
+    max-width: 430px;
+    margin: 0 auto !important;
+    padding: 10px !important;
+    border-spacing: 0 !important;
+    
+  }
+
+  table:has(.bandcampWrapper) > tbody,
+  table:has(.bandcampWrapper) > tbody > tr,
+  table:has(.bandcampWrapper) > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+    
+  }
+
+  table:has(.bandcampWrapper) > tbody > tr > td {
+    padding: 8px 0 !important;
+  }
+
+  .bandcampWrapper {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 16px;
+  }
+
+  .bandcampWrapper iframe {
+    display: block;
+    width: 100% !important;
+    max-width: 350px;
+  }
+
+  table:has(.bandcampWrapper) p,
+  table:has(.bandcampWrapper) font[size="4"] {
+    font-size: 24px !important;
+    line-height: 1.6;
+  }
+
+  #themeToggle {
+    top: 22px;
+    right: 22px;
+    width: 42px;
+    height: 42px;
+    font-size: 19px;
+  }
+}
+
