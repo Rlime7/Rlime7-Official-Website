@@ -6,6 +6,8 @@
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  filter:blur(10px);
+  transform: scale(1.1);
 }
 
 .back-video video {
@@ -18,6 +20,7 @@
   min-height: 100%;
 
   object-fit: cover;
+  
 }
 
 
@@ -51,9 +54,7 @@ left: 0;
     height: 100px;
     
 } 
-.gradient1 {
-    background: linear-gradient(to bottom, #AE00CE 0%, #002C66 50%, #000000 100%);
-}
+
 
 .gradient2 {
     background: linear-gradient(to bottom, #04FF00 0%, #000000 60%, #000000 100%);
@@ -63,31 +64,28 @@ left: 0;
     background: linear-gradient(to bottom, #027300 0%, #000000 75%, #000000 100%);
 }
 
-.gradient4 {
-    background: linear-gradient(to right, #6E0075 0%, #026E00 50%, #003094 100%);
-}
-
-.gradient5 {
-    background: linear-gradient(to bottom, #0200D6 0%, #000000 50%, #00184A 100%);
-}
-
-.gradient6 {
-    background: linear-gradient(to top, #C28340 0%, #854F2B 50%, #61371F 50%, #8FCA5C 50%, #70B237 50%, #477A1E 100%);
-}
 
 :root {
     --table-bg: rgba(255,255,255,0.7);
     --table-text: black;
+    --loader-bg: rgb(40, 54, 31);
+    --loader-text: black;
+    --loader-accent: #2ebd35;
 }
 
 .dark {
     --table-bg: rgba(0,0,0,0.7);
     --table-text: white;
+    
+    --loader-bg: rgba(0,0,0,1);
+    --loader-text: white;
+    --loader-accent: #2ebd35;
 }
 table {
     background: var(--table-bg) !important;
     color: var(--table-text);
     border-collapse: separate;
+    border-spacing: 16px;
     border-radius: 16px;
     backdrop-filter: blur(10px);
 }
@@ -100,12 +98,11 @@ table * {
     background: transparent;
 }
 
-.banner {
-  border-radius:16px;
-}
+
+
 #themeToggle {
     position: fixed;
-    top: 10px;
+    top: 15px;
     right: 15px;
 
     width: 50px;
@@ -135,5 +132,261 @@ table * {
 .dark #logo {
     filter: invert(1);
 }
+@font-face {
+    font-family: "Glacial Indifference";
+    src: url("fonts/GlacialIndifference-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-face {
+    font-family: "Glacial Indifference", sans-serif;
+}
+.font-face h1{
+    font-family: "Glacial Indifference", sans-serif;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: white;
+    text-align: center;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.font h1{
+     letter-spacing: 8px;
+    text-transform: uppercase;
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+.light {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: white;
+    text-align: center;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.orbitron-light {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    letter-spacing: 6px;
+}
+.audiowide {
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    letter-spacing: 6px;
+}
+.league-gothic {
+    font-family: "League Gothic", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+     color: white;
+    text-align: center;
+    letter-spacing: 20px;
+     text-transform: uppercase;
+}
+
+.antonio {
+    font-family: "Antonio", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    text-align: center;
+    letter-spacing: 10px;
+     text-transform: uppercase;
+}
+
+@font-face {
+    font-family: "Playlist Script";
+    src: url("fonts/Playlist-Script.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.playlist-script {
+    font-family: "Playlist Script", sans-serif;
+    color: white;
+    text-align: center;
+    letter-spacing: 6px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 25px;
+    width: 85%;
+    margin: auto;
+    max-width: 1700px;
+    background: var(--table-bg) !important;
+    padding: 20px;
+    border-radius: 16px;
+}
+.album {
+    text-align: center;
+    padding: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+     border-radius: 16px;
+}
+
+.album img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.album:hover {
+    transform: scale(1.03);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.album:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+}
+
+.dark .album:hover {
+    box-shadow: 0 0 15px rgb(94, 255, 0);
+}
+
+.album p {
+    font-family: verdana;
+    font-size: 20px;
+    margin-top: 6px;
+}
+.album-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    width: 60%;
+    max-width: 400px;
+    margin: auto;
+    background: var(--table-bg) !important;
+    color: var(--table-text);
+    padding: 15px;
+    border-radius: 16px;
+    overflow: hidden;
+}
 
 
+
+.banner {
+  border-radius:16px;
+    max-width: 100%;
+    height: auto;
+     object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width: 768px) {
+    .album-grid {
+        grid-template-columns: 1fr !important;
+        width: 95% !important;
+        padding: 10px !important;
+    }
+
+    .album p {
+        font-size: 13px;
+    }
+}
+@font-face {
+    font-family: "Minecraft";
+    src: url("fonts/Minecraft.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+.minecraft {
+    font-family: "Minecraft", sans-serif;
+    color: white;
+   text-align: center;
+    letter-spacing: 16px;
+     text-transform: uppercase;
+   
+}
+#bandcampDark {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.dark #bandcampLight {
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.dark #bandcampDark {
+    opacity: 1;
+    pointer-events: auto;
+    position: static;
+}
+#loadingScreen {
+    position: fixed;
+    inset: 0;
+
+    background: var(--loader-bg);
+    color: var(--loader-text);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+.loaderBar {
+    width: 120px;
+    height: 2px;
+    margin-top: 12px;
+
+    background: rgba(128,128,128,0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.loaderBar::after {
+    content: "";
+    position: absolute;
+    left: -40%;
+    width: 40%;
+    height: 100%;
+    background: var(--loader-accent);
+    animation: slide 1s infinite;
+}
+
+@keyframes slide {
+    to { left: 100%; }
+}
+.bandcampWrapper {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    display: inline-block;
+    
+}
+.images {
+  border-radius:16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  filter: brightness(1.5);
+}
